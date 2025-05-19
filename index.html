@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>520表白神器</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- 主容器 -->
+    <div id="app">
+        <!-- 浪漫启动页 -->
+        <section id="start-page" class="page active">
+            <div class="heart-beat"></div>
+            <div class="date-counter">
+                <p>我们已经相识了</p>
+                <div id="days-counter">0</div>
+                <p>天</p>
+                <div id="hours-counter">0</div>
+                <p>小时</p>
+            </div>
+            <button id="start-btn" class="pulse-btn">开启心动模式❤️</button>
+            <div class="music-player">
+                <audio id="bgm" loop>
+                    <source src="assets/music/告白气球.mp3" type="audio/mpeg">
+                </audio>
+                <button id="music-toggle" class="music-btn">🎵</button>
+            </div>
+        </section>
+
+        <!-- 动态情书系统 -->
+        <section id="love-letter" class="page">
+            <div class="letter-container">
+                <h2 class="recipient-name rainbow-text">亲爱的 <span id="recipient">宝贝</span></h2>
+                <div id="typewriter" class="letter-content"></div>
+            </div>
+            <div class="particles-container"></div>
+            <button class="nav-btn next-btn" data-target="games">下一页</button>
+            <button class="nav-btn prev-btn" data-target="start-page">上一页</button>
+        </section>
+
+        <!-- 趣味互动游戏 -->
+        <section id="games" class="page">
+            <div class="games-container">
+                <div class="game-selector">
+                    <button class="game-btn" data-game="heart-catcher">爱心捕捉</button>
+                    <button class="game-btn" data-game="puzzle">记忆拼图</button>
+                </div>
+                
+                <!-- 爱心捕捉游戏 -->
+                <div id="heart-catcher" class="game-area">
+                    <div class="game-header">
+                        <div class="score">得分: <span id="heart-score">0</span></div>
+                        <div class="timer">时间: <span id="heart-timer">10</span>秒</div>
+                    </div>
+                    <div class="game-field"></div>
+                    <div class="game-result"></div>
+                    <button class="start-game-btn">开始游戏</button>
+                </div>
+                
+                <!-- 记忆拼图游戏 -->
+                <div id="puzzle-game" class="game-area">
+                    <div class="puzzle-container">
+                        <div class="puzzle-header">
+                            <input type="file" id="puzzle-upload" accept="image/*">
+                            <label for="puzzle-upload" class="upload-btn">上传照片</label>
+                        </div>
+                        <div class="puzzle-board"></div>
+                        <div class="puzzle-info"></div>
+                    </div>
+                    <button class="start-game-btn">开始游戏</button>
+                </div>
+            </div>
+            <button class="nav-btn next-btn" data-target="photo-wall">下一页</button>
+            <button class="nav-btn prev-btn" data-target="love-letter">上一页</button>
+        </section>
+
+        <!-- 时光相册墙 -->
+        <section id="photo-wall" class="page">
+            <div class="photo-container">
+                <div class="photo-upload">
+                    <input type="file" id="photo-upload" accept="image/*" multiple>
+                    <label for="photo-upload" class="upload-btn">上传照片</label>
+                </div>
+                <div class="photo-gallery"></div>
+                <div class="photo-viewer">
+                    <div class="photo-view-container">
+                        <img src="" alt="照片预览">
+                        <div class="photo-info"></div>
+                        <button class="close-viewer">关闭</button>
+                    </div>
+                </div>
+            </div>
+            <button class="nav-btn next-btn" data-target="confession">下一页</button>
+            <button class="nav-btn prev-btn" data-target="games">上一页</button>
+        </section>
+
+        <!-- 终极表白仪式 -->
+        <section id="confession" class="page">
+            <div class="rose-container"></div>
+            <div class="certificate-container">
+                <div class="certificate">
+                    <h2>爱情证书</h2>
+                    <p>兹证明</p>
+                    <div class="names">
+                        <span id="lover1">我</span> ❤️ <span id="lover2">你</span>
+                    </div>
+                    <p>永远相爱</p>
+                    <p class="date">日期: <span id="cert-date"></span></p>
+                    <button id="download-cert" class="download-btn">下载证书</button>
+                </div>
+            </div>
+            <div class="fireworks-container"></div>
+            <div class="gift-qrcode">
+                <h3>为你准备的礼物</h3>
+                <div id="qrcode"></div>
+                <p>扫描查看惊喜</p>
+            </div>
+            <button class="nav-btn prev-btn" data-target="photo-wall">上一页</button>
+            <button class="restart-btn" data-target="start-page">重新开始</button>
+        </section>
+    </div>
+
+    <!-- 脚本引入 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.0/build/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.7/dist/index.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/start-page.js"></script>
+    <script src="js/love-letter.js"></script>
+    <script src="js/games.js"></script>
+    <script src="js/photo-wall.js"></script>
+    <script src="js/confession.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/server.js"></script>
+</body>
+</html>

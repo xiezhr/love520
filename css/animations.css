@@ -1,0 +1,244 @@
+/* 动画效果样式 */
+
+/* 心跳动画 */
+@keyframes heartbeat {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    10% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    20% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    30% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    40% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.heart-beat {
+    animation: heartbeat 1.5s infinite;
+}
+
+/* 按钮脉冲动画 */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 107, 107, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+    }
+}
+
+.pulse-btn {
+    animation: pulse 2s infinite;
+}
+
+/* 彩虹文字动画 */
+@keyframes rainbow {
+    0% {
+        color: #ff0000;
+    }
+    14% {
+        color: #ff7f00;
+    }
+    28% {
+        color: #ffff00;
+    }
+    42% {
+        color: #00ff00;
+    }
+    57% {
+        color: #0000ff;
+    }
+    71% {
+        color: #4b0082;
+    }
+    85% {
+        color: #9400d3;
+    }
+    100% {
+        color: #ff0000;
+    }
+}
+
+.rainbow-text {
+    animation: rainbow 5s linear infinite;
+}
+
+/* 打字机效果 */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: #333;
+    margin-left: 2px;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+}
+
+/* 樱花/爱心粒子飘落 */
+@keyframes fall {
+    0% {
+        transform: translateY(-10%) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+.particle {
+    position: absolute;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+.cherry {
+    width: 15px;
+    height: 15px;
+    background: url('../assets/images/cherry.png') no-repeat center;
+    background-size: contain;
+}
+
+.heart-particle {
+    width: 15px;
+    height: 15px;
+    background: url('../assets/images/heart.png') no-repeat center;
+    background-size: contain;
+}
+
+/* 照片切换动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 玫瑰绽放动画 */
+@keyframes bloom {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1) rotate(45deg);
+        opacity: 1;
+    }
+}
+
+.rose {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url('../assets/images/rose.png') no-repeat center;
+    background-size: contain;
+    animation: bloom 1.5s ease-out forwards;
+}
+
+/* 烟花动画 */
+@keyframes explode {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.firework {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+}
+
+/* 页面切换动画 */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.5s forwards;
+}
+
+.slide-out-left {
+    animation: slideOutLeft 0.5s forwards;
+}
+
+/* 爱心跳动动画 */
+@keyframes heartJump {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.1);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.heart-jump {
+    animation: heartJump 0.8s infinite;
+}
+
+/* 证书出现动画 */
+@keyframes certificateAppear {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.certificate {
+    animation: certificateAppear 1s ease-out forwards;
+}

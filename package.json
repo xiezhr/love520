@@ -1,0 +1,11 @@
+{
+  "name": "love520",
+  "version": "1.0.0",
+  "description": "520表白神器",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "MIT"
+}

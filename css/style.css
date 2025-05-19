@@ -1,0 +1,627 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    background-color: #ffebee;
+    color: #333;
+    overflow: hidden;
+    height: 100vh;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.8s ease;
+}
+
+.page.active {
+    display: flex;
+}
+
+/* 导航按钮 */
+.nav-btn {
+    position: absolute;
+    padding: 10px 20px;
+    background-color: rgba(255, 105, 180, 0.8);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.next-btn {
+    bottom: 20px;
+    right: 20px;
+}
+
+.prev-btn {
+    bottom: 20px;
+    left: 20px;
+}
+
+.nav-btn:hover {
+    transform: scale(1.1);
+    background-color: #ff1493;
+}
+
+/* 浪漫启动页样式 */
+#start-page {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.heart-beat {
+    width: 100px;
+    height: 100px;
+    background: url('../assets/images/heart.png') no-repeat center;
+    background-size: contain;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.date-counter {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#days-counter, #hours-counter {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 5px 0;
+    display: inline-block;
+}
+
+.pulse-btn {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+    transition: all 0.3s ease;
+}
+
+.pulse-btn:hover {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
+}
+
+.music-player {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.music-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 动态情书系统样式 */
+#love-letter {
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    position: relative;
+}
+
+.letter-container {
+    max-width: 600px;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.recipient-name {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.letter-content {
+    font-size: 18px;
+    line-height: 1.8;
+    min-height: 200px;
+}
+
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* 趣味互动游戏样式 */
+#games {
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.games-container {
+    width: 90%;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.game-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.game-btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.game-btn:hover {
+    background-color: #ff4757;
+    transform: scale(1.05);
+}
+
+.game-area {
+    display: none;
+    width: 100%;
+    height: 400px;
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.game-area.active {
+    display: block;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f8f9fa;
+}
+
+.game-field {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    background-color: #f0f8ff;
+    overflow: hidden; /* 防止内容溢出 */
+}
+
+.heart-item {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 10; /* 确保爱心在最上层 */
+}
+
+.heart-item:hover {
+    transform: scale(1.2);
+}
+
+.game-result {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+    z-index: 20;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    min-width: 250px;
+}
+
+.game-result h3 {
+    margin-bottom: 15px;
+    color: #ff6b6b;
+}
+
+.game-result .restart-game-btn {
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.game-result .restart-game-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.start-game-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* 拼图游戏样式 */
+.puzzle-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.puzzle-header {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.upload-btn {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#puzzle-upload {
+    display: none;
+}
+
+.puzzle-board {
+    width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2px;
+    margin: 20px auto;
+}
+
+.puzzle-piece {
+    width: 100%;
+    height: 100%;
+    background-size: 300px 300px;
+    cursor: pointer;
+    border: 1px solid #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.puzzle-info {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* 时光相册墙样式 */
+#photo-wall {
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.photo-container {
+    width: 90%;
+    max-width: 1000px;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.photo-upload {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.photo-item {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-item:hover {
+    transform: scale(1.05);
+}
+
+.photo-delete {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.photo-item:hover .photo-delete {
+    opacity: 1;
+}
+
+.photo-info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover .photo-info-overlay {
+    transform: translateY(0);
+}
+
+.photo-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.photo-view-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-view-container img {
+    max-width: 100%;
+    max-height: 80vh;
+    border: 5px solid white;
+    object-fit: contain;
+}
+
+.photo-info {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.close-viewer {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* 终极表白仪式样式 */
+#confession {
+    background: linear-gradient(135deg, #fccb90 0%, #d57eeb 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.rose-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.certificate-container {
+    position: relative;
+    z-index: 10;
+    max-width: 600px;
+    width: 80%;
+}
+
+.certificate {
+    background: url('../assets/images/certificate-bg.jpg') no-repeat center;
+    background-size: cover;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.certificate h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #d81b60;
+}
+
+.names {
+    font-size: 28px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.date {
+    margin-top: 20px;
+    font-style: italic;
+}
+
+.download-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #d81b60;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.fireworks-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.gift-qrcode {
+    position: absolute;
+    bottom: 80px;
+    right: 20px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#qrcode {
+    width: 150px;
+    height: 150px;
+    margin: 10px auto;
+}
+
+.restart-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #9c27b0;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.certificate-export {
+    background: url('../assets/images/certificate-bg.jpg') no-repeat center;
+    background-size: cover;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    width: 600px;
+    height: 800px;
+    position: absolute;
+    left: -9999px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.certificate-export h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #d81b60;
+}
+
+.certificate-export .names {
+    font-size: 28px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.certificate-export .date {
+    margin-top: 20px;
+    font-style: italic;
+}
+.empty-gallery {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    color: #999;
+    font-size: 18px;
+    font-style: italic;
+}
